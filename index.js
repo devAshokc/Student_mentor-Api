@@ -2,8 +2,10 @@
 import express from "express"  // latest method of import and export "type":"module"
 import { MongoClient } from "mongodb";
 const app = express();
+import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config()
 
-const PORT = 5000;
+const PORT = process.env.PORT;
 // const zenclass = [
 //     {
 //       "id": 1,
@@ -80,7 +82,7 @@ const PORT = 5000;
 // ]
 
 
-const MONGO_URL = "mongodb://127.0.0.1:27017";
+const MONGO_URL = process.env.MONGO_URL;
 const client = new MongoClient(MONGO_URL); // phone dial// top-level await
 await client.connect(); // call button
 console.log("Mongo is connected ✌️😊");
